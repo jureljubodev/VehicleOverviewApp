@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  .topbar {
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+
+    h1 {
+      margin-right: 25px;
+    }
+  }
+
+  .table-wrapper {
+    margin-top: 5rem;
+    max-width: 100%;
+    padding: 2rem;
+    .input-wrapper {
+      max-width: 800px;
+      min-width: 350px;
+      align-items: center;
+      padding: 2rem;
+
+      input {
+        margin: 0.5rem 1rem;
+      }
+    }
+  }
+}

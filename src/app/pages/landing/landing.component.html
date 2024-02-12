@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <h1 class="heading">Sign in to AVL Vehicle App</h1>
+  <form
+    class="form-wrapper"
+    (ngSubmit)="login()"
+    [formGroup]="loginForm"
+    novalidate
+  >
+    <div class="p-inputgroup input-wrapper">
+      <input pInputText placeholder="Username" formControlName="Username" />
+    </div>
+    <div class="p-inputgroup input-wrapper">
+      <input
+        #passInput
+        type="password"
+        pInputText
+        placeholder="Password"
+        formControlName="Password"
+        maxlength="25"
+        minlength="8"
+        (click)="loginFormPressed = true"
+      />
+    </div>
+    <p-button
+      label="Log In"
+      type="submit"
+      class="fill-btn"
+      [disabled]="loginForm.invalid"
+    ></p-button>
+  </form>
+  <ul
+    class="error-element"
+    *ngIf="loginFormPressed || loginForm.errors || passInput.value.length < 8"
+  >
+    <li *ngIf="loginForm.errors?.['passwordCapitalError']">
+      Password needs to contain at least 1 capital letter.
+    </li>
+    <li *ngIf="loginForm.errors?.['passwordNumberError']">
+      Password needs to containet at least 1 number.
+    </li>
+    <li *ngIf="loginForm.errors?.['passwordSymbolError']">
+      Password need to contain at least one symbol.
+    </li>
+    <li *ngIf="passInput.value.length < 8">
+      Password needs to contain at least 8 characters
+    </li>
+  </ul>
+</div>
